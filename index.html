@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taran Siruvuri, Mechanical Engineer</title>
+<meta name="description" content="Taran Siruvuri is a mechanical engineering student at UT Austin. Fixture design, test and validation, and advanced manufacturing.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Taran Siruvuri, Mechanical Engineer">
+<meta property="og:description" content="Fixtures. Validation. Advanced manufacturing.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/f7e73f_73fa556d20ec44288aaebf6372404ac4~mv2.jpg/v1/fill/w_1200,h_630,al_c,q_85/f7e73f_73fa556d20ec44288aaebf6372404ac4~mv2.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M6 9h20M16 9v16' stroke='%23EE7A2E' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Plan: pure black ground, warm bone type, one burnt-orange accent, charcoal surface for About and project sheets.
+   Layout: oversized stacked name over a dot-wave field, a horizontal numbered project strip, dated experience rows. */
+:root{
+  --bg:#000000;
+  --surface:#15171A;
+  --text:#F1EFE8;
+  --muted:#A9ACA6;
+  --accent:#EE7A2E;
+  --rule:#2D3139;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --gutter:clamp(20px,3.4vw,64px);
+  --nav-h:72px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 8px);background:var(--bg)}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;font-size:clamp(16px,.3vw + 14.8px,18px);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1480px;margin-inline:auto;padding-inline:var(--gutter)}
+.mono{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+.accent{color:var(--accent)}
+.muted{color:var(--muted)}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;text-wrap:balance}
+h2{font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:.98}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--text);color:#000;padding:8px 14px;z-index:60}
+.skip:focus{left:8px}
+
+/* header */
+.bar{position:fixed;inset:0 0 auto 0;z-index:30;height:var(--nav-h);background:rgba(0,0,0,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.bar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:18px;text-decoration:none}
+.logo b{font-size:34px;font-weight:600;letter-spacing:-.06em;line-height:1}
+.nav{display:flex;gap:clamp(18px,2.4vw,36px);list-style:none;padding:0;align-items:center}
+.nav a{text-decoration:none;color:var(--text);padding:8px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover{color:var(--accent);border-color:var(--accent)}
+.menu-btn{display:none;font:inherit;background:none;border:0;color:var(--text);cursor:pointer;padding:8px 0;align-items:center;gap:14px}
+.menu-btn span.plus{font-size:26px;line-height:1;font-family:var(--sans)}
+.menu{position:fixed;inset:var(--nav-h) 0 0 0;z-index:29;background:var(--bg);padding:clamp(24px,6vw,48px) var(--gutter);display:none;flex-direction:column;gap:6px;overflow:auto}
+.menu.open{display:flex}
+.menu a{font-size:clamp(2.2rem,10vw,3.6rem);letter-spacing:-.04em;font-weight:500;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--rule)}
+.menu a:hover{color:var(--accent)}
+
+/* hero */
+.hero{position:relative;min-height:min(92vh,900px);padding:calc(var(--nav-h) + 22px) 0 28px;display:flex;flex-direction:column;border-bottom:1px solid var(--rule);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;flex:1;display:flex;flex-direction:column;width:100%}
+.hero-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted)}
+h1{margin-block:auto;padding-block:clamp(24px,5vw,64px);font-size:clamp(4.1rem,20vw,15.5rem);line-height:.86;letter-spacing:-.055em;font-weight:500}
+.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.tagline{font-size:clamp(1.25rem,2.1vw,1.9rem);letter-spacing:-.02em;line-height:1.25;font-weight:500}
+.hero-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--text);background:none;border:1px solid var(--text);padding:13px 18px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--text);color:#000}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:#120700}
+.btn.solid:hover{background:var(--text);border-color:var(--text);color:#000}
+.pause{position:absolute;right:var(--gutter);top:calc(var(--nav-h) + 56px);z-index:2;border-color:var(--rule);color:var(--muted);padding:8px 12px}
+.pause:hover{border-color:var(--text)}
+
+/* sections */
+.section{padding:clamp(72px,9vw,140px) 0;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(32px,4.5vw,64px)}
+.sec-head .mono{margin-bottom:18px;display:block}
+
+/* project strip */
+.strip{--pad:max(var(--gutter),calc((100vw - 1480px)/2 + var(--gutter)));display:flex;gap:clamp(20px,2.4vw,40px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:0 var(--pad) 24px;scrollbar-width:thin;scrollbar-color:var(--rule) transparent;overscroll-behavior-x:contain}
+.pcard{flex:0 0 min(86vw,580px);scroll-snap-align:start;text-decoration:none;color:inherit;display:block}
+.pframe{position:relative;aspect-ratio:5/6;background:var(--surface);border:1px solid var(--rule);overflow:hidden}
+.pframe img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.pframe img.fit{object-fit:contain;padding:6%}
+.pcard:hover .pframe img,.pcard:focus-visible .pframe img{transform:scale(1.03)}
+.pcard .mono.lab{margin-top:22px;display:block}
+.pcard h3{font-size:clamp(1.9rem,3vw,2.8rem);line-height:1;margin-top:12px;display:flex;justify-content:space-between;gap:16px}
+.pcard h3 .ar{font-family:var(--sans);font-weight:400;font-size:.7em;color:var(--muted);transition:color .2s,transform .2s}
+.pcard:hover h3 .ar{color:var(--accent);transform:translate(3px,-3px)}
+.pcard p.sum{margin-top:14px;max-width:34em;color:var(--muted)}
+.pcard .mono.key{margin-top:16px;display:block;color:var(--text);padding-top:14px;border-top:1px solid var(--rule)}
+.strip-ctl{display:flex;align-items:center;gap:10px}
+.strip-ctl .count{margin-right:10px;color:var(--muted)}
+.strip-ctl button{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--rule);color:var(--text);padding:11px 14px;cursor:pointer}
+.strip-ctl button:hover:not(:disabled){border-color:var(--text)}
+.strip-ctl button:disabled{opacity:.35;cursor:default}
+
+/* experience */
+.job{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:12px clamp(24px,5vw,96px);padding:clamp(28px,4vw,52px) 0;border-top:1px solid var(--rule)}
+.job:last-child{border-bottom:1px solid var(--rule)}
+.job .when{display:block;color:var(--accent)}
+.job .where{display:block;color:var(--muted);margin-top:8px}
+.job h3{font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:1}
+.job .role{font-size:clamp(1.15rem,1.6vw,1.45rem);letter-spacing:-.02em;margin-top:14px;font-weight:500}
+.job ul{list-style:none;padding:0;margin-top:22px;display:grid;gap:14px;max-width:46em}
+.job li{position:relative;padding-left:26px;color:var(--muted);line-height:1.55}
+.job li::before{content:"";position:absolute;left:3px;top:.72em;width:5px;height:5px;background:var(--accent)}
+.job li b{color:var(--text);font-weight:600}
+
+/* about */
+.about{background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr);gap:clamp(28px,6vw,110px);align-items:start}
+.portrait{aspect-ratio:4/5;background:#0c0d0f;border:1px solid var(--rule);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.about-copy p{max-width:36em;margin-top:24px;font-size:clamp(1.1rem,.6vw + 1rem,1.35rem);letter-spacing:-.01em;color:var(--muted);line-height:1.55}
+.about-copy p.lead{color:var(--text);margin-top:clamp(24px,3vw,40px)}
+.facts{margin-top:clamp(28px,4vw,52px);display:grid;gap:0}
+.facts div{display:grid;grid-template-columns:minmax(120px,.5fr) 1.5fr;gap:16px;padding:14px 0;border-top:1px solid var(--rule)}
+.facts div:last-child{border-bottom:1px solid var(--rule)}
+.facts dt{color:var(--accent)}
+.facts dd{margin:0;color:var(--text)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0}
+.skills section{padding:26px clamp(0px,2vw,32px) 30px 0;border-top:1px solid var(--rule)}
+.skills h3{font-size:1.5rem;line-height:1.1;margin-bottom:18px}
+.skills ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.skills li{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;padding:7px 10px;border:1px solid var(--rule);color:var(--text)}
+
+/* contact */
+.contact h2{font-size:clamp(2.6rem,9vw,8rem);line-height:.92}
+.contact .lede{max-width:30em;margin-top:clamp(20px,3vw,36px);font-size:clamp(1.1rem,.6vw + 1rem,1.35rem);color:var(--muted)}
+.email{display:block;width:fit-content;max-width:100%;margin-top:clamp(28px,4vw,52px);font-size:clamp(1.15rem,4.8vw,3.4rem);letter-spacing:-.035em;line-height:1.1;text-decoration:none;border-bottom:2px solid var(--accent);overflow-wrap:anywhere;transition:color .2s}
+.email:hover{color:var(--accent)}
+.contact-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+footer{padding:26px 0 40px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:24px;z-index:80;transform:translate(-50%,16px);opacity:0;background:var(--text);color:#000;padding:11px 18px;pointer-events:none;transition:opacity .25s,transform .25s;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* photo fallback */
+.ph{display:grid;place-items:center;align-content:center;gap:10px;width:100%;height:100%;min-height:140px;background:repeating-linear-gradient(45deg,rgba(241,239,232,.05) 0 6px,transparent 6px 12px);color:var(--muted);text-align:center}
+.ph svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:1.5}
+
+/* project sheet */
+dialog#sheet{padding:0;border:1px solid var(--rule);background:var(--surface);color:var(--text);width:min(1280px,calc(100% - 2 * var(--gutter)));max-width:none;max-height:calc(100vh - 32px);margin:auto;overflow:hidden}
+dialog#sheet[open]{display:flex;flex-direction:column;animation:sheetin .4s cubic-bezier(.2,.8,.2,1)}
+dialog#sheet::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(4px)}
+@keyframes sheetin{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+html.lock{overflow:hidden}
+.sheet-bar{flex:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 24px;border-bottom:1px solid var(--rule)}
+.sheet-bar .tools{display:flex;gap:6px}
+.sbtn{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text);background:none;border:1px solid var(--rule);padding:10px 14px;cursor:pointer}
+.sbtn:hover{border-color:var(--text);background:var(--text);color:#000}
+.sheet-scroll{overflow:auto;flex:1;overscroll-behavior:contain}
+.sheet-body{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,64px);padding:clamp(18px,3vw,36px)}
+.gal-main{position:relative;height:min(66vh,700px);background:#0c0d0f;border:1px solid var(--rule);display:grid;place-items:center;overflow:hidden}
+.gal-main img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.gal-nav{position:absolute;right:10px;bottom:10px;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.82);padding:4px;border:1px solid var(--rule)}
+.gal-nav span{padding:0 8px;color:var(--muted);font-variant-numeric:tabular-nums}
+.gal-nav button{color:var(--text);background:none;border:1px solid var(--rule);width:32px;height:32px;cursor:pointer;display:grid;place-items:center}
+.gal-nav button:hover{background:var(--text);color:#000}
+.gal-nav svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+.cap{margin-top:10px;color:var(--muted);min-height:1.5em}
+.thumbs{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding-bottom:4px}
+.thumb{flex:none;width:64px;height:80px;padding:0;border:1px solid var(--rule);background:#0c0d0f;cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb img.fit{object-fit:contain;padding:6px}
+.thumb .ph{min-height:0}
+.thumb .ph svg,.thumb .ph span{display:none}
+.thumb[aria-current="true"]{border-color:var(--accent);opacity:1}
+.thumb:hover{opacity:1}
+.info .num{color:var(--accent);display:block;margin-bottom:14px}
+.info h2{font-size:clamp(2rem,3.6vw,3.2rem)}
+.info .sumline{margin-top:16px;color:var(--text);font-size:1.12rem;letter-spacing:-.01em}
+.info p.desc{margin-top:16px;max-width:38em;color:var(--muted)}
+.info h4{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-top:28px}
+.info ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;max-width:38em}
+.info li{position:relative;padding-left:22px;color:var(--muted)}
+.info li::before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:5px;background:var(--accent)}
+.info p.out{margin-top:10px;max-width:38em;color:var(--text)}
+.tb{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 clamp(18px,3vw,36px) clamp(18px,3vw,36px)}
+.tb div{background:var(--surface);padding:12px 14px}
+.tb dt{color:var(--muted)}
+.tb dd{margin:4px 0 0;line-height:1.35}
+
+@media (max-width:980px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex}
+  .about-grid{grid-template-columns:1fr}
+  .portrait{max-width:380px}
+  .job{grid-template-columns:1fr}
+  .sheet-body{grid-template-columns:1fr}
+  .gal-main{height:min(58vh,540px)}
+  .pause{top:auto;bottom:auto;position:static;margin-top:0}
+}
+@media (max-width:520px){
+  .logo .mono{display:none}
+  .sheet-bar{padding-left:16px}
+  .sbtn{padding:10px}
+  .hero-foot{align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  dialog#sheet[open]{animation:none}
+  .pframe img{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Taran Siruvuri, home"><b>TS</b><span class="mono">Taran Siruvuri</span></a>
+    <nav aria-label="Main">
+      <ul class="nav mono">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn mono" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="plus" aria-hidden="true">+</span></button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu">
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+  <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+</nav>
+
+<main id="main">
+<section class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-meta mono"><span>Mechanical engineering</span><span>UT Austin / May 2028</span></div>
+    <h1>Taran<br>Siruvuri</h1>
+    <div class="hero-foot">
+      <p class="tagline">Fixtures.<br>Validation.<br>Advanced manufacturing.</p>
+      <div class="hero-actions">
+        <button class="btn" type="button" id="pause" aria-pressed="false">Pause motion</button>
+        <a class="btn solid" href="#projects">Explore the work &darr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects" style="padding-bottom:clamp(48px,6vw,96px)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="mono accent">Selected work</span><h2>Engineering projects</h2></div>
+      <div class="strip-ctl">
+        <span class="mono count" id="pcount" aria-live="polite"></span>
+        <button type="button" id="pprev" aria-label="Previous project">Prev</button>
+        <button type="button" id="pnext" aria-label="Next project">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="strip" id="strip" role="list" aria-label="Projects"></div>
+  <noscript><div class="wrap"><p>Projects: Chassis Hardpoint Fixture, Fiber Optic Cable Fixture Prototypes, Chassis Torsional Rigidity, 3D Printed Ventilation Grille. Turn on JavaScript to open them.</p></div></noscript>
+</section>
+
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="mono accent">Experience</span><h2>Work experience</h2></div></div>
+
+    <article class="job">
+      <div><span class="mono when">Aug 2026 to present</span><span class="mono where">Austin, TX</span></div>
+      <div>
+        <h3>Throne Science</h3>
+        <p class="role">Research and Development Intern</p>
+        <ul>
+          <li>Redesign the robotic arm, extrusion mechanism and carriage assemblies for a <b>modular sampling robot</b>, revising component layouts and mechanical packaging for space-constrained operation.</li>
+          <li>Develop CAD models for <b>sensor mounts, electrical housings and structural components</b>, covering mechanical and electrical interfaces, assembly access and serviceability.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div><span class="mono when">Jun to Aug 2026</span><span class="mono where">Lansing Delta Township, MI</span></div>
+      <div>
+        <h3>General Motors</h3>
+        <p class="role">Mechanical Engineering Intern</p>
+        <ul>
+          <li>Diagnosed automated body-shop equipment failures, including a belt-drive motor issue, and cross-checked replacement frame-hoist specifications against OEM drawings to catch part-compatibility risks.</li>
+          <li>Isolated the robotic alignment errors behind vehicle door-gap deviations. Applied <b>0.5 mm datum adjustments</b> and a <b>0.25 mm weldment correction</b>, validated on <b>3 builds</b>, which eliminated recurring manual rework.</li>
+          <li>Audited <b>200 motors across 5+ vendors</b>, reconciling part numbers, gearbox configurations, equipment locations and pallet-system associations against maintenance records.</li>
+          <li>Standardized motor records and sourcing procedures, cutting projected diagnostic and replacement-planning time from 6 to 8 hours to under 3, an expected reduction of <b>more than 50%</b>.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div><span class="mono when">Jun to Aug 2025</span><span class="mono where">Austin, TX</span></div>
+      <div>
+        <h3>Austin Reliability Labs</h3>
+        <p class="role">Reliability Engineering Intern</p>
+        <ul>
+          <li>Designed and fabricated grounding, mounting and alignment fixtures for <b>15 Dell motherboards</b>, setting up repeatable hardware for HALT and environmental testing.</li>
+          <li>Improved test-setup repeatability by <b>30%</b> through fixture and procedure changes. A fiber optic test fixture I developed earned an <b>Innovator of the Month</b> award.</li>
+          <li>Ran vibration, shock, thermal cycling, humidity and power-cycling tests, tracked hardware failures and supported root-cause investigations under accelerated stress.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="portrait" id="portrait"></div>
+    <div class="about-copy">
+      <h2>About</h2>
+      <p class="lead">I'm a mechanical engineering student at the University of Texas at Austin. I like work where the physical result has to be repeatable and checkable: fixtures, tolerance stacks and test setups.</p>
+      <p>I've done that for a Formula SAE team, an automotive body shop and a reliability lab. I'm interested in nano-sensor testing, advanced manufacturing and vehicular design, and I'm open to research roles and internships in those areas.</p>
+      <dl class="facts">
+        <div><dt class="mono">Education</dt><dd>The University of Texas at Austin<br><span class="muted">BS Mechanical Engineering, May 2028, GPA 4.00</span></dd></div>
+        <div><dt class="mono">Honors</dt><dd>Tau Beta Pi Honor Society</dd></div>
+        <div><dt class="mono">Pursuing</dt><dd>BDP Certificate in Innovation, Creativity &amp; Entrepreneurship</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="mono accent">Skills</span><h2>What I work with</h2></div></div>
+    <div class="skills">
+      <section>
+        <h3>Test and validation</h3>
+        <ul><li>HALT/HASS</li><li>Vibration</li><li>Shock</li><li>Thermal cycling</li><li>Humidity</li><li>Power cycling</li><li>Failure tracking</li><li>Root-cause analysis</li><li>Test procedures</li></ul>
+      </section>
+      <section>
+        <h3>Mechanical and robotics</h3>
+        <ul><li>SolidWorks</li><li>Inventor</li><li>ANSYS FEA</li><li>GD&amp;T</li><li>Tolerance stack-up</li><li>Fixture and tooling design</li><li>Electromechanical packaging</li><li>Mechanical assembly</li></ul>
+      </section>
+      <section>
+        <h3>Data and fabrication</h3>
+        <ul><li>Python</li><li>MATLAB</li><li>Excel</li><li>Test documentation</li><li>CNC machining</li><li>Mill</li><li>Lathe</li><li>3D printing</li><li>TIG welding</li><li>Design for manufacturability</li></ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact" style="border-bottom:0">
+  <div class="wrap">
+    <span class="mono accent">Contact</span>
+    <h2 style="margin-top:18px">Let's talk.</h2>
+    <p class="lede">Open to research roles and internships in nanosensors, advanced manufacturing and design.</p>
+    <a class="email" href="mailto:taran.siruvuri@gmail.com">taran.siruvuri@gmail.com</a>
+    <div class="contact-row">
+      <button class="btn" type="button" id="copy">Copy email</button>
+      <a class="btn" href="http://www.linkedin.com/in/taran-siruvuri-ab3382319" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="tel:+15129643087">512-964-3087</a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap mono"><span>&copy; 2026 Taran Siruvuri. Austin, TX.</span><a href="#top">Back to top</a></div>
+</footer>
+
+<dialog id="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-bar">
+    <span class="mono accent" id="sheet-no"></span>
+    <div class="tools">
+      <button class="sbtn" type="button" id="prev">Prev</button>
+      <button class="sbtn" type="button" id="next">Next</button>
+      <button class="sbtn" type="button" id="close">Close</button>
+    </div>
+  </div>
+  <div class="sheet-scroll" id="sheet-scroll"></div>
+</dialog>
+<div class="toast mono" id="toast" role="status"></div>
+
+<script>
+(() => {
+'use strict';
+
+/* ---------- content: add a project by adding one object to PROJECTS ----------
+   Photos: { wix:'<media id>', ratio, alt }  loads from your Wix storage.
+           { src:'images/file.jpg', alt, cap, fit:true }  loads a local file. */
+const WIX = 'https://static.wixstatic.com/media/';
+const EMAIL = 'taran.siruvuri@gmail.com';
+
+const PROJECTS = [
+  {
+    slug: 'hardpoint-fixture',
+    title: 'Chassis Hardpoint Fixture',
+    org: 'Longhorn Racing Electric',
+    dates: 'Sep 2024 to Mar 2025',
+    location: 'Austin, TX',
+    key: '0.005 in per feature',
+    summary: 'SolidWorks fixtures, built with GD&T and a tolerance stack, that locate critical chassis nodes within 0.005 inch.',
+    description: 'A hardpoint fixture for the Formula SAE chassis. It locates and holds critical suspension mounting points during fabrication. The requirement was 0.005 in per feature, with the stacked total under 0.050 in.',
+    did: [
+      'Designed SolidWorks fixtures dimensioned with GD&T and stacked the per-feature tolerances in CAD against the budget',
+      'Set up a datum scheme that removes the six degrees of freedom in order (three, then two, then one) so the bracket seats the same way on every build',
+      'Machined the parts to within 0.001 to 0.002 in of spec and TIG tack-welded the subassemblies',
+      'Wrote repeatable assembly and welding steps so each build starts from the same reference',
+      'Measured parts against a surface plate and verified the fixture against the chassis'
+    ],
+    outcome: 'The as-built stack sat well under the 0.050 in budget, and the fixture became the team\'s reference for maintaining suspension geometry.',
+    work: 'Design, machining and welding',
+    tools: 'SolidWorks, GD&T, mill and lathe, TIG welding',
+    images: [
+      { wix: 'f7e73f_9528522b38fc4f7989804c3abe8001ff~mv2.jpg', ratio: 1440 / 1921, alt: 'Hardpoint jig fixture, photo 1', cap: 'The physical hardpoint fixture.' },
+      { wix: 'f7e73f_a39eba46f5124ffbaf2cdd208b0105bc~mv2.jpg', ratio: 1440 / 1921, alt: 'Hardpoint jig fixture, photo 2' },
+      { wix: 'f7e73f_da15bc800b494e99847948241bc5ac8e~mv2.jpg', ratio: 1440 / 1921, alt: 'Hardpoint jig fixture, photo 3' },
+      { wix: 'f7e73f_2852a53651d74719bc4a1b994a18e5cb~mv2.jpg', ratio: 1440 / 1921, alt: 'Hardpoint jig fixture, photo 4' },
+      { src: 'images/hardpoint-chassis-on-table.jpg', alt: 'CAD view of the chassis frame on the fixture table', cap: 'Fig. 1. Chassis frame on the fixture table (SolidWorks).' },
+      { src: 'images/hardpoint-bracket-at-node.jpg', alt: 'CAD view of a bracket at a chassis node', cap: 'Fig. 2. Bracket at a chassis node (SolidWorks).' }
+    ]
+  },
+  {
+    slug: 'fiber-optic-fixture',
+    title: 'Fiber Optic Cable Fixture Prototypes',
+    org: 'Austin Reliability Labs',
+    dates: 'Jun to Aug 2025',
+    location: 'Austin, TX',
+    key: 'Innovator of the Month',
+    summary: 'A custom fixture for a fiber optic enclosure in reliability testing, recognized with an Innovator of the Month award.',
+    description: 'A fixture for a fiber optic enclosure used in reliability testing. The CAD design turned the lab\'s testing and handling requirements into a part that holds the enclosure securely, keeps critical components reachable, and makes setup more consistent from one test to the next. It sat alongside grounding, mounting and alignment fixtures I built for 15 Dell motherboards under HALT, which improved setup repeatability by 30%.',
+    did: [
+      'Iterated the fixture design in CAD',
+      'Reviewed manufacturability and how technicians would use it',
+      'Supported fabrication',
+      'Validated fit and function before the fixture entered the lab\'s testing workflow'
+    ],
+    outcome: 'Validated for fit and function, adopted into the lab\'s testing workflow, and recognized with an Innovator of the Month award.',
+    work: 'Reliability engineering intern',
+    tools: 'CAD, HALT and environmental test setups',
+    images: [
+      { wix: 'f7e73f_c552ba06fa8646d291394bf228cc7822~mv2.jpg', ratio: 4284 / 5712, alt: 'Fiber optic cable fixture prototype, photo 1' },
+      { wix: 'f7e73f_c987dbbeaa69401eaa0b03bdca3a526d~mv2.jpg', ratio: 904 / 848, alt: 'Fiber optic cable fixture prototype, photo 2' },
+      { wix: 'f7e73f_226463d1f42041e8b7c6356106611132~mv2.jpg', ratio: 980 / 1307, alt: 'Prototype of assembled modular fiber optic cable spooler with interlocking mechanism', cap: 'Assembled modular fiber optic cable spooler with an interlocking mechanism.' },
+      { wix: 'f7e73f_527cd7cc2945440e8889a914da2038d5~mv2.jpg', ratio: 980 / 1307, alt: 'Fiber optic cable fixture prototype, photo 3' },
+      { wix: 'f7e73f_c4b9b963cb6e471fbf1f8f250c89cbc3~mv2.jpg', ratio: 980 / 1307, alt: 'Fiber optic cable fixture prototype, photo 4' }
+    ]
+  },
+  {
+    slug: 'chassis-torsional-rigidity',
+    title: 'Chassis Torsional Rigidity',
+    org: 'Longhorn Racing Electric',
+    dates: 'Fall 2025 to Spring 2026',
+    location: 'Austin, TX',
+    key: 'K = 2F(d1 + d2) / θ',
+    summary: 'Chassis torsional stiffness from an ANSYS static model, reduced to a single number in lb·ft per degree.',
+    description: 'Torsional rigidity of the Formula SAE chassis, found by constraining the rear, loading the front nodes in opposite directions and reading the chassis rotation from the simulation. Stiffness matters because a frame that twists changes how lateral load transfers between the front and rear axles, and a softer frame lets the suspension springs and bars do less of the work. Published FSAE guidance puts the frame at roughly 3 to 5 times the roll stiffness of the suspension, with added weight as the cost of going stiffer.',
+    did: [
+      'Built the ANSYS static structural model of the chassis with the rear constrained and equal and opposite forces applied at the front nodes',
+      'Read the angular deflection from the simulation and converted it to torsional rigidity in lb·ft per degree',
+      'Used the roll stiffness equations to set the stiffness target the frame needs to hit',
+      'Looked at critical load paths, tube placement and battery packaging to see where stiffness could be gained or weight saved'
+    ],
+    outcomeLabel: 'Method',
+    outcome: 'Rear nodes fixed, force F applied up on one side and down on the other at the front, so the frame twists about its long axis. With d<sub>1</sub> and d<sub>2</sub> the chassis widths in feet and θ the rotation in degrees, <em>K</em> = [4(F·d<sub>1</sub>/2) + 4(F·d<sub>2</sub>/2)] / θ = 2F(d<sub>1</sub> + d<sub>2</sub>) / θ, in lb·ft per degree. The same setup works in SolidWorks Simulation, and the result can be checked against a physical test. Published frame studies also show the suspension can inflate a measured number: one reported overall torsional stiffness rising about 14 percent (roughly 645 to 753 N·m per degree) once an anti-roll bar was included, so it is worth stating whether the bar is in the model.',
+    work: 'Chassis FEA',
+    tools: 'ANSYS, SolidWorks',
+    images: [
+      { src: 'images/torsion-ansys-deformation.jpg', alt: 'ANSYS total deformation plot of the chassis under torsion load', cap: 'Fig. 1. ANSYS total deformation under the torsion load case.' },
+      { src: 'images/torsion-formula.png', alt: 'Torsional rigidity formula and load diagram', cap: 'Fig. 2. Torsional rigidity: K = 2F(d1 + d2) / θ, with forces at the front nodes.', fit: true },
+      { src: 'images/torsion-ansys-results.jpg', alt: 'ANSYS deformation versus time graph and tabular data', cap: 'Fig. 3. Deformation results table from the same run.' }
+    ]
+  },
+  {
+    slug: 'ventilation-grille',
+    title: '3D Printed Ventilation Grille',
+    org: 'Additive manufacturing',
+    dates: '',
+    location: '',
+    key: 'FDM in PC/ABS FR',
+    summary: 'A slotted ventilation grille for electronics cooling, 3D printed in a flame-retardant PC/ABS filament.',
+    description: 'A 3D printed ventilation grille for electronic cooling, with long parallel slots and four corner standoffs. Grilles like this improve airflow and reduce thermal resistance, and they can be fitted to enclosures for CPUs, GPUs and other dense processors. The part is 3D printed with fused deposition modeling in BASF Forward AM Ultrafuse PC/ABS FR, a flame-retardant filament for high temperatures and thermal cycling.',
+    did: [
+      'Modeled the slotted grille with corner standoffs and mounting holes in CAD',
+      '3D printed it with fused deposition modeling, which suits prototypes, pilot runs and low-volume end-use parts',
+      'Chose a flame-retardant PC/ABS filament for heat and thermal cycling'
+    ],
+    outcome: 'Printing is the short part. The overall schedule depends on the end use (internal industrial equipment, commercial electronics or a safety-certified product), because verification and certification take much longer than printing.',
+    outcomeLabel: 'Schedule notes',
+    work: 'Design and material selection',
+    tools: 'CAD, FDM 3D printing, BASF Forward AM Ultrafuse PC/ABS FR',
+    images: [
+      { src: 'images/ventilation-grille-cad.jpg', alt: 'CAD model of a slotted ventilation grille with four corner standoffs', cap: 'CAD model of the ventilation grille.' }
+    ]
+  }
+];
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const PH = '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="12"/><path d="M24 6v36M6 24h36"/></svg><span class="mono">Photo not loaded</span>';
+const pad = n => String(n).padStart(2, '0');
+
+function makeImg(sources, alt, eager, fit) {
+  const img = new Image();
+  img.alt = alt; img.decoding = 'async';
+  if (!eager) img.loading = 'lazy';
+  if (fit) img.className = 'fit';
+  let k = 0;
+  img.addEventListener('error', () => {
+    k += 1;
+    if (k < sources.length) { img.src = sources[k]; return; }
+    const ph = document.createElement('div');
+    ph.className = 'ph'; ph.setAttribute('role', 'img'); ph.setAttribute('aria-label', alt); ph.innerHTML = PH;
+    img.replaceWith(ph);
+  });
+  img.src = sources[0];
+  return img;
+}
+function projectImg(im, w, eager) {
+  if (im.src) return makeImg([im.src], im.alt, eager, im.fit);
+  const u = `${WIX}${im.wix}/v1/fit/w_${w},h_${Math.round(w / im.ratio)},q_85/${im.wix}`;
+  return makeImg([u, WIX + im.wix], im.alt, eager, false);
+}
+const metaLine = p => [p.dates, p.location].filter(Boolean).join(' / ');
+
+/* ---------- menu ---------- */
+const menu = $('#menu'), mbtn = $('#menu-btn');
+function setMenu(open) {
+  menu.classList.toggle('open', open);
+  mbtn.setAttribute('aria-expanded', String(open));
+  mbtn.querySelector('.plus').textContent = open ? '×' : '+';
+  document.documentElement.classList.toggle('lock', open);
+}
+mbtn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+matchMedia('(min-width: 981px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+/* ---------- hero: dot-wave field ---------- */
+(() => {
+  const hero = $('#top'), cv = $('#field'), ctx = cv.getContext('2d'), btn = $('#pause');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer: fine)').matches;
+  let W = 0, H = 0, running = !reduce, raf = 0, visible = true, t0 = performance.now(), mx = -9999, my = -9999, tPaused = 0;
+  const COLS = 64, ROWS = 30;
+
+  function size() {
+    const r = hero.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw(tPaused);
+  }
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    const base = H * 0.34, span = H * 0.72, amp = H * 0.11;
+    for (let r = 0; r < ROWS; r++) {
+      const d = r / (ROWS - 1), p = .3 + .7 * Math.pow(d, 1.25);
+      const y0 = base + d * span;
+      for (let c = 0; c <= COLS; c++) {
+        const u = c / COLS - .5;
+        const x = W / 2 + u * W * (.9 + .9 * p);
+        const wave = Math.sin(c * .21 + t * .0006 + r * .34) * Math.cos(r * .23 - t * .0004);
+        const y = y0 - wave * amp * p;
+        const k = Math.max(0, 1 - Math.hypot(x - mx, y - my) / 150);
+        const s = .7 + 1.7 * p + k * 3.2;
+        ctx.globalAlpha = Math.min(1, .12 + .62 * p + k * .6);
+        ctx.fillStyle = k > .05 ? '#EE7A2E' : '#F1EFE8';
+        ctx.fillRect(x - s / 2, y - s / 2, s, s);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+  function loop(now) {
+    if (running && visible) { tPaused = now - t0; draw(tPaused); }
+    raf = requestAnimationFrame(loop);
+  }
+  function setRunning(on) {
+    running = on;
+    if (on) t0 = performance.now() - tPaused;
+    btn.textContent = on ? 'Pause motion' : 'Play motion';
+    btn.setAttribute('aria-pressed', String(!on));
+    if (!on) draw(tPaused);
+  }
+  btn.addEventListener('click', () => setRunning(!running));
+  if (fine) {
+    hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; if (!running) draw(tPaused); });
+    hero.addEventListener('pointerleave', () => { mx = my = -9999; if (!running) draw(tPaused); });
+  }
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(hero);
+  new ResizeObserver(size).observe(hero);
+  setRunning(running);
+  size();
+  raf = requestAnimationFrame(loop);
+})();
+
+/* ---------- project strip ---------- */
+const strip = $('#strip'), pcount = $('#pcount'), pprev = $('#pprev'), pnext = $('#pnext');
+PROJECTS.forEach((p, i) => {
+  const a = document.createElement('a');
+  a.className = 'pcard'; a.href = '#' + p.slug; a.setAttribute('role', 'listitem');
+  const fr = document.createElement('div');
+  fr.className = 'pframe';
+  fr.append(projectImg(p.images[0], 900, i < 2));
+  a.append(fr);
+  a.insertAdjacentHTML('beforeend',
+    `<span class="mono lab"><span class="accent">${pad(i + 1)} / ${pad(PROJECTS.length)}</span> <span class="muted">${p.org}${p.dates ? ', ' + p.dates : ''}</span></span>` +
+    `<h3><span>${p.title}</span><span class="ar" aria-hidden="true">↗</span></h3>` +
+    `<p class="sum">${p.summary}</p><span class="mono key">${p.key}</span>`);
+  strip.append(a);
+});
+function stripIndex() {
+  const cards = [...strip.querySelectorAll('.pcard')], left = strip.scrollLeft + 4;
+  let idx = 0;
+  cards.forEach((c, i) => { if (c.offsetLeft - strip.offsetLeft - parseFloat(getComputedStyle(strip).paddingLeft) <= left + 2) idx = i; });
+  if (strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4) idx = cards.length - 1;
+  return idx;
+}
+function updateStrip() {
+  const i = stripIndex();
+  pcount.textContent = `${pad(i + 1)} / ${pad(PROJECTS.length)}`;
+  pprev.disabled = strip.scrollLeft <= 4;
+  pnext.disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
+}
+function stepStrip(d) {
+  const cards = [...strip.querySelectorAll('.pcard')], i = Math.max(0, Math.min(cards.length - 1, stripIndex() + d));
+  strip.scrollTo({ left: cards[i].offsetLeft - parseFloat(getComputedStyle(strip).paddingLeft) - strip.offsetLeft + 0, behavior: 'smooth' });
+}
+pprev.addEventListener('click', () => stepStrip(-1));
+pnext.addEventListener('click', () => stepStrip(1));
+strip.addEventListener('scroll', () => requestAnimationFrame(updateStrip), { passive: true });
+addEventListener('resize', updateStrip);
+updateStrip();
+
+/* ---------- about photo ---------- */
+$('#portrait').append(makeImg(['images/taran-portrait.jpg'], 'Portrait of Taran Siruvuri', false));
+
+/* ---------- project sheet ---------- */
+const dlg = $('#sheet'), scroller = $('#sheet-scroll'), sheetNo = $('#sheet-no');
+let cur = 0, gi = 0;
+
+function openProject(i) {
+  cur = i; gi = 0;
+  renderSheet();
+  if (!dlg.open) { dlg.showModal(); document.documentElement.classList.add('lock'); }
+  scroller.scrollTop = 0;
+}
+function renderSheet() {
+  const p = PROJECTS[cur];
+  sheetNo.textContent = `${pad(cur + 1)} / ${pad(PROJECTS.length)}`;
+  const rows = [['Project', p.title], ['Organization', p.org], ['Work', p.work], ['Dates', p.dates], ['Location', p.location], ['Tools', p.tools]]
+    .filter(r => r[1]).map(r => `<div><dt class="mono">${r[0]}</dt><dd>${r[1]}</dd></div>`).join('');
+  scroller.innerHTML =
+    `<div class="sheet-body">
+       <div class="gal"><div class="gal-main" id="gal-main"></div><p class="cap" id="cap"></p><div class="thumbs" id="thumbs"></div></div>
+       <div class="info">
+         <span class="mono num">${pad(cur + 1)} / ${p.org}</span>
+         <h2 id="sheet-title">${p.title}</h2>
+         <p class="sumline">${p.summary}</p>
+         <p class="desc">${p.description}</p>
+         <h4>What I did</h4>
+         <ul>${p.did.map(d => `<li>${d}</li>`).join('')}</ul>
+         ${p.outcome ? `<h4>${p.outcomeLabel || 'Outcome'}</h4><p class="out">${p.outcome}</p>` : ''}
+       </div>
+     </div>
+     <dl class="tb">${rows}</dl>`;
+  const th = $('#thumbs');
+  p.images.forEach((im, k) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'thumb';
+    b.setAttribute('aria-label', `Show image ${k + 1} of ${p.images.length}`);
+    b.append(projectImg(im, 200, false));
+    b.addEventListener('click', () => showImg(k));
+    th.append(b);
+  });
+  if (p.images.length < 2) th.hidden = true;
+  showImg(0);
+}
+function showImg(k) {
+  const p = PROJECTS[cur], n = p.images.length;
+  gi = (k + n) % n;
+  const main = $('#gal-main');
+  main.replaceChildren(projectImg(p.images[gi], 1300, true));
+  $('#cap').textContent = p.images[gi].cap || '';
+  if (n > 1) {
+    const nav = document.createElement('div');
+    nav.className = 'gal-nav';
+    nav.innerHTML = `<button type="button" aria-label="Previous image"><svg viewBox="0 0 14 14"><path d="M9 2 4 7l5 5"/></svg></button><span class="mono">${gi + 1} / ${n}</span><button type="button" aria-label="Next image"><svg viewBox="0 0 14 14"><path d="m5 2 5 5-5 5"/></svg></button>`;
+    nav.children[0].addEventListener('click', () => showImg(gi - 1));
+    nav.children[2].addEventListener('click', () => showImg(gi + 1));
+    main.append(nav);
+  }
+  document.querySelectorAll('#thumbs .thumb').forEach((t, j) => t.setAttribute('aria-current', String(j === gi)));
+}
+function go(d) {
+  const i = (cur + d + PROJECTS.length) % PROJECTS.length;
+  history.replaceState(null, '', '#' + PROJECTS[i].slug);
+  openProject(i);
+}
+$('#prev').addEventListener('click', () => go(-1));
+$('#next').addEventListener('click', () => go(1));
+$('#close').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') showImg(gi - 1);
+  else if (e.key === 'ArrowRight') showImg(gi + 1);
+});
+dlg.addEventListener('close', () => {
+  document.documentElement.classList.remove('lock');
+  if (PROJECTS.some(p => '#' + p.slug === location.hash)) history.replaceState(null, '', location.pathname + location.search);
+});
+function fromHash() {
+  const s = decodeURIComponent(location.hash.slice(1));
+  const i = PROJECTS.findIndex(p => p.slug === s);
+  if (i >= 0) openProject(i);
+  else if (dlg.open) dlg.close();
+}
+addEventListener('hashchange', fromHash);
+fromHash();
+
+/* ---------- contact ---------- */
+const toast = $('#toast');
+let tt = 0;
+function say(msg) { toast.textContent = msg; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2200); }
+$('#copy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(EMAIL); say('Email copied'); }
+  catch (_) { say('Copy failed. Select the address and copy it.'); }
+});
+})();
+</script>
+</body>
+</html>
